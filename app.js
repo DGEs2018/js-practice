@@ -13,19 +13,30 @@
 // isValidPassword('cdmHonk', 'cdmHonk'); false
 //isValidPassword('hello1', 'cdmHonk'); false
 
+// const isValidPassword = (password, username) => {
+// 	if (password.length < 8) {
+// 		// problem with password.length >= 8, is that if it's true, then the if statement won't continue
+// 		return false;
+// 	}
+// 	if (password.indexOf(' ') !== -1) {
+// 		// if password doesn't contain spaces
+// 		return false;
+// 	}
+// 	if (password.indexOf(username) !== -1) {
+// 		// if password doesn't contain the username
+// 		return false;
+// 	} else
+// 		// then, as all the requirement are fulfilled, then return true
+// 		return true;
+// };
+
 const isValidPassword = (password, username) => {
-	if (password.length < 8) {
-		// problem with password.length >= 8, is that if it's true, then the if statement won't continue
+	const tooShort = password.length < 8;
+	const containsSpace = password.indexOf(' ') == !-1;
+	const containsUsername = password.indexOf(username) == !-1;
+
+	if (tooShort || containsSpace || containsUsername) {
 		return false;
 	}
-	if (password.indexOf(' ') !== -1) {
-		// if password doesn't contain spaces
-		return false;
-	}
-	if (password.indexOf(username) !== -1) {
-		// if password doesn't contain the username
-		return false;
-	} else
-		// then, as all the requirement are fulfilled, then return true
-		return true;
+	return true;
 };
