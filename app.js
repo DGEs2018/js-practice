@@ -22,7 +22,7 @@ const isValidPassword = (password, username) => {
 		// if password doesn't contain spaces
 		return false;
 	}
-	if (password.indexOf(username)) {
+	if (password.indexOf(username) !== -1) {
 		// if password doesn't contain the username
 		return false;
 	} else
