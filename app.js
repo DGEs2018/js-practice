@@ -34,6 +34,6 @@ const isValidPassword = (password, username) => {
 	const tooShort = password.length < 8;
 	const containsSpace = password.indexOf(' ') == !-1;
 	const similarToUsername = password.indexOf(username) == !-1;
-	if (tooShort || containsSpace || similarToUsername) return false;
-	return true;
+	if (!tooShort && !containsSpace && !similarToUsername) return true;
+	return false;
 };
